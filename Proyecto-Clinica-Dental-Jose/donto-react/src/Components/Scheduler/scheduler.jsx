@@ -32,7 +32,7 @@ class Scheduler extends Component {
 
   onEventAdded(args) {
     // Send the new appointment data to the server
-    axios.post('http://localhost:3001/api/appointments', args.data)
+    axios.post('https://api.clinicadentalsofiacastro.com/api/appointments', args.data)
       .then(response => {
         console.log('Appointment saved successfully:', response.data);
       })

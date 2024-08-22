@@ -21,7 +21,7 @@ function BlogList() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/blogs/find')
+    axios.get('https://api.clinicadentalsofiacastro.com/api/blogs/find')
       .then((response) => {
         setBlog(response.data);
       })
@@ -35,7 +35,7 @@ function BlogList() {
 
   const handleDelete=(id) =>{
 
-    axios.delete('http://localhost:3001/api/blogs/delete/'+id)
+    axios.delete('https://api.clinicadentalsofiacastro.com/api/blogs/delete/'+id)
     .then(res=> {console.log(res)
     window.location.reload()
     })

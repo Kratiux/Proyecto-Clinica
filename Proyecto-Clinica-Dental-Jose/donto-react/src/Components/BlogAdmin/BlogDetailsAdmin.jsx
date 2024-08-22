@@ -129,7 +129,7 @@ const BlogDetailsAdmin = ({ blogId }) => {
     
     if(isValid){
       try {
-         axios.post('http://localhost:3001/api/blogs/Create', {
+         axios.post('https://api.clinicadentalsofiacastro.com/api/blogs/Create', {
           imageUrl,
           blogTitle,
           blogDescription,

@@ -519,7 +519,7 @@ export default function SignUp() {
 
     if (isValid) {
       axios
-        .post('http://localhost:3001/register', {
+        .post('https://api.clinicadentalsofiacastro.com/register', {
           name,
           lastname,
           email,

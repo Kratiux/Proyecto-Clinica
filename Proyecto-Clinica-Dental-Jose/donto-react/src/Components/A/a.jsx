@@ -34,7 +34,7 @@ moment.locale('es');
 
   const cargarCitas = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/citas');
+      const response = await axios.get('https://api.clinicadentalsofiacastro.com/citas');
       const citasFormateadas = response.data.map((cita) => ({
         ...cita,
         start: new Date(cita.start),
@@ -100,7 +100,7 @@ moment.locale('es');
         // Lógica para guardar o actualizar la cita
         if (citaSeleccionada) {
           // Actualizar la cita existente
-          await axios.put(`http://localhost:3001/citas/${citaSeleccionada._id}`, {
+          await axios.put(`https://api.clinicadentalsofiacastro.com/citas/${citaSeleccionada._id}`, {
             title,
             start: rangoTiempo.start,
             end: rangoTiempo.end,
@@ -112,7 +112,7 @@ moment.locale('es');
           });
         } else {
           // Guardar una nueva cita
-          await axios.post('http://localhost:3001/citas', {
+          await axios.post('https://api.clinicadentalsofiacastro.com/citas', {
             start: rangoTiempo.start,
             end: rangoTiempo.end,
             tipoServicio,
@@ -140,7 +140,7 @@ moment.locale('es');
     try {
       if (citaSeleccionada) {
         // Eliminar la cita
-        await axios.delete(`http://localhost:3001/citas/${citaSeleccionada._id}`);
+        await axios.delete(`https://api.clinicadentalsofiacastro.com/citas/${citaSeleccionada._id}`);
 
         // Recargar las citas después de eliminar la cita
         cargarCitas();

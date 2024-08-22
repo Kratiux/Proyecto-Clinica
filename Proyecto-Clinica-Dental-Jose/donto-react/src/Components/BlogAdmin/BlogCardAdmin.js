@@ -6,7 +6,7 @@ const BlogCardAdmin = ({ onEdit, onDelete }) => {
   const [blogs, setBlogs] = React.useState([]);
 
   React.useEffect(() => {
-    axios.get('http://localhost:3001/api/blogs')
+    axios.get('https://api.clinicadentalsofiacastro.com/api/blogs')
       .then(response => {
         setBlogs(response.data);
       })

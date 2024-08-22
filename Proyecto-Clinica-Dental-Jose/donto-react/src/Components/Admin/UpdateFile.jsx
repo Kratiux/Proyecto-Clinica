@@ -67,7 +67,7 @@ function UpdateFile() {
     const lastnameRegex = /^[A-Z][a-z]*$/;
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/getFile/${id}`)
+        axios.get(`https://api.clinicadentalsofiacastro.com/getFile/${id}`)
             .then(result => {console.log(result)
                 setIdentification(result.data.identification);
                 setNames(result.data.names);
@@ -107,7 +107,7 @@ function UpdateFile() {
         }
 
         if(isValid){
-        axios.put(`http://localhost:3001/updateFile/${id}`, { identification, names, lastName, description })
+        axios.put(`https://api.clinicadentalsofiacastro.com/updateFile/${id}`, { identification, names, lastName, description })
             .then(result => {
                 history.push('/Admin/DashboardPatient');
                 // Manejar la respuesta o redirigir a una página de éxito

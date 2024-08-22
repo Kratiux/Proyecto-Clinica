@@ -11,7 +11,7 @@ class Contact extends Component {
 
         try {
             // Make a POST request to your server with form data
-            const response = await axios.post('http://localhost:3001/send-email', formData);
+            const response = await axios.post('https://api.clinicadentalsofiacastro.com/send-email', formData);
 
             // Check the server response and provide user feedback
             if (response.status === 200) {

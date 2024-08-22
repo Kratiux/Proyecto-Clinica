@@ -106,7 +106,7 @@ export default function ForgotPassword() {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3001/send-email', { email })
+    axios.post('https://api.clinicadentalsofiacastro.com/send-email', { email })
         .then(result => {
             console.log(result);
             

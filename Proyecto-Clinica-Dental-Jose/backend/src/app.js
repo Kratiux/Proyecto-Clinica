@@ -18,15 +18,26 @@ const Cita = require('./models/SchedulerModel');
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.json({ limit: '10mb' }));
+app.use(express.json());
+const cors_whitelist = ["http://localhost:21000", "https://www.clinicadentalsofiacastro.com" ,"https://clinicadentalsofiacastro.com"]
+
 app.use(cors({
 
-  origin: ["http://localhost:3000"],    //allow the frontend
+  origin: function (origin, callback, abc) {
+    if (cors_whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS' + JSON.stringify(abc)))
+    }
+  },    //allow the frontend
   methods: ["GET", "POST", "DELETE", "PUT"],
   credentials: true
 
 }))
 app.use(cookieParser())
+
+
+
 app.use('/', UserRoute);
 app.use('/', LoginRoute);
 
@@ -77,7 +88,7 @@ app.post('/send-email', (req, res) => {
           </div>
           <p style="font-size:1.1em">Hola,</p>
           <p>Gracias por escoger los servicios de la Clinica Sofia Castro. Con el siguiente link cambie la contraseña</p>
-          <h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">http://localhost:3000/ForgotPassword/Passwordreset</h2>
+          <h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">https://api.clinicadentalsofiacastro.com/ForgotPassword/Passwordreset</h2>
           <p style="font-size:0.9em;">Les saluda,<br />Clinica Dental Sofia Castro</p>
           <hr style="border:none;border-top:1px solid #eee" />
           <div style="float:right;padding:8px 0;color:#aaa;font-size:0.8em;line-height:1;font-weight:300">

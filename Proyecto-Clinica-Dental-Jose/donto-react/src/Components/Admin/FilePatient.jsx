@@ -21,7 +21,7 @@ function FileList() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3001/fileGet')
+    axios.get('https://api.clinicadentalsofiacastro.com/fileGet')
       .then((response) => {
         setFiles(response.data);
       })
@@ -35,7 +35,7 @@ function FileList() {
 
   const handleDelete=(id) =>{
 
-    axios.delete('http://localhost:3001/deleteFile/'+id)
+    axios.delete('https://api.clinicadentalsofiacastro.com/deleteFile/'+id)
     .then(res=> {console.log(res)
     window.location.reload()
     })

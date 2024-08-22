@@ -10,7 +10,7 @@ const BlogUpdateAdmin = ({ blogId }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/blogs/${blogId}`)
+      .get(`https://api.clinicadentalsofiacastro.com/api/blogs/${blogId}`)
       .then((response) => {
         const blogDetails = response.data;
         console.log(blogDetails);
@@ -50,7 +50,7 @@ const BlogUpdateAdmin = ({ blogId }) => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://localhost:3001/api/blogs/update/${blogId}`, {
+      await axios.put(`https://api.clinicadentalsofiacastro.com/api/blogs/update/${blogId}`, {
         imageUrl,
         blogTitle,
         blogDescription,

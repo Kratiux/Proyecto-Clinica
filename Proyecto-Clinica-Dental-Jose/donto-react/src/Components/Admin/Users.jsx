@@ -19,7 +19,7 @@ function UserList() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3001/')
+    axios.get('https://api.clinicadentalsofiacastro.com/')
       .then((response) => {
         setUsers(response.data);
       })
@@ -33,7 +33,7 @@ function UserList() {
 
   const handleDelete=(id) =>{
 
-    axios.delete('http://localhost:3001/deleteUser/'+id)
+    axios.delete('https://api.clinicadentalsofiacastro.com/deleteUser/'+id)
     .then(res=> {console.log(res)
     window.location.reload()
     })

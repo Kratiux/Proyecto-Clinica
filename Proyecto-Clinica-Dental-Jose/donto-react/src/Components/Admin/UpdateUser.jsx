@@ -62,7 +62,7 @@ function UpdateUser() {
     const classes = useStyles();
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/getUser/${id}`)
+        axios.get(`https://api.clinicadentalsofiacastro.com/getUser/${id}`)
             .then(result => {console.log(result)
                 setIdentification(result.data.identification);
                 setName(result.data.name);
@@ -84,7 +84,7 @@ function UpdateUser() {
 
     const Update = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:3001/updateUser/${id}`, { identification, name, lastName, email, phone, birthday, gender, province, canton, distrit})
+        axios.put(`https://api.clinicadentalsofiacastro.com/updateUser/${id}`, { identification, name, lastName, email, phone, birthday, gender, province, canton, distrit})
             .then(result => {
                 history.push('/Admin/Dashboard');
                 // Manejar la respuesta o redirigir a una página de éxito

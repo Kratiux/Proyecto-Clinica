@@ -13,7 +13,7 @@ const BlogDetails = ({ blogId }) => {
   useEffect(() => {
     const fetchBlogDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/blogs/${blogId}`);
+        const response = await axios.get(`https://api.clinicadentalsofiacastro.com/api/blogs/${blogId}`);
         setBlogDetails(response.data);
       } catch (error) {
         console.error('Error fetching blog details:', error);

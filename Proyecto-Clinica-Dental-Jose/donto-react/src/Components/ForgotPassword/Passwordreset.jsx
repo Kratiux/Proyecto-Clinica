@@ -79,7 +79,7 @@ function ResetPassword() {
     }
 
     // Llamar a la ruta en tu servidor para cambiar la contraseña
-    axios.post('http://localhost:3001/change-password', { newPassword: password })
+    axios.post('https://api.clinicadentalsofiacastro.com/change-password', { newPassword: password })
       .then(response => {
         // Manejar la respuesta del servidor
         history.push('/Signin/signin'); // Redirige a la página de inicio de sesión
