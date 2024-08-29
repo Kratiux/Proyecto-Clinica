@@ -19,7 +19,7 @@ const Cita = require('./models/SchedulerModel');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
-/* const cors_whitelist = ["http://localhost:21000", "https://www.clinicadentalsofiacastro.com" ,"https://clinicadentalsofiacastro.com", "https://api.clinicadentalsofiacastro.com"]
+const cors_whitelist = ["http://localhost:21000", "https://www.clinicadentalsofiacastro.com" ,"https://clinicadentalsofiacastro.com"]
 
 app.use(cors({
 
@@ -33,21 +33,7 @@ app.use(cors({
   methods: ["GET", "POST", "DELETE", "PUT"],
   credentials: true
 
-})) */
-
-  app.use((req, res, next) => {
-    res.header(
-    "Access-Control-Allow-Origin",
-    "www.clinicadentalsofiacastro"
-    );
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    res.header("Access-Control-Allow-Credentials", true);
-    
-    console.log("Request received:", req.method, req.url);
-    
-    next();
-    });
+}))
 app.use(cookieParser())
 
 
@@ -58,7 +44,17 @@ app.use('/', LoginRoute);
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://www.clinicadentalsofiacastro.com' ,'https://clinicadentalsofiacastro.com');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true'); // Si necesitas enviar cookies o autenticación
 
+  // Opcional: Configura las cabeceras máximas permitidas en la respuesta
+  res.header('Access-Control-Expose-Headers', 'Content-Type, Authorization');
+
+  next();
+});
 
 
 // Nodemailer setup
@@ -131,17 +127,7 @@ app.post('/send-email', (req, res) => {
 });
 
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.header('Access-Control-Allow-Credentials', 'true'); // Si necesitas enviar cookies o autenticación
 
-  // Opcional: Configura las cabeceras máximas permitidas en la respuesta
-  res.header('Access-Control-Expose-Headers', 'Content-Type, Authorization');
-
-  next();
-});
 
 app.post('/registerFile', (req, res) => {
 
