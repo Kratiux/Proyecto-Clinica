@@ -19,7 +19,7 @@ const Cita = require('./models/SchedulerModel');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
-const cors_whitelist = ["http://localhost:21000", "https://www.clinicadentalsofiacastro.com" ,"https://clinicadentalsofiacastro.com", "https://api.clinicadentalsofiacastro.com"]
+/* const cors_whitelist = ["http://localhost:21000", "https://www.clinicadentalsofiacastro.com" ,"https://clinicadentalsofiacastro.com", "https://api.clinicadentalsofiacastro.com"]
 
 app.use(cors({
 
@@ -33,7 +33,11 @@ app.use(cors({
   methods: ["GET", "POST", "DELETE", "PUT"],
   credentials: true
 
-}))
+})) */
+
+app.use(cors());
+
+
 app.use(cookieParser())
 
 
@@ -44,7 +48,7 @@ app.use('/', LoginRoute);
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'https://www.clinicadentalsofiacastro.com' ,'https://clinicadentalsofiacastro.com', 'https://api.clinicadentalsofiacastro.com');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -54,7 +58,7 @@ app.use((req, res, next) => {
   res.header('Access-Control-Expose-Headers', 'Content-Type, Authorization');
 
   next();
-});
+}); */
 
 
 // Nodemailer setup
