@@ -101,7 +101,7 @@ export default function ForgotPassword() {
   
 
 
-  axios.defaults.withCredentials = true;
+  axios.defaults.withCredentials = false;
 
   
   const handleSubmit = (e) => {

@@ -123,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DashboardUpdateFile() {
 
-  axios.defaults.withCredentials = true;
+  axios.defaults.withCredentials = false;
   let history = useHistory();
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
