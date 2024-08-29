@@ -19,7 +19,7 @@ const Cita = require('./models/SchedulerModel');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
-const cors_whitelist = ["http://localhost:21000", "https://www.clinicadentalsofiacastro.com" ,"https://clinicadentalsofiacastro.com"]
+const cors_whitelist = ["http://localhost:21000", "https://www.clinicadentalsofiacastro.com" ,"https://clinicadentalsofiacastro.com", "https://api.clinicadentalsofiacastro.com"]
 
 app.use(cors({
 
