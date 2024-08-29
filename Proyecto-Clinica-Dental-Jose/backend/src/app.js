@@ -19,7 +19,7 @@ const Cita = require('./models/SchedulerModel');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
-const cors_whitelist = ["http://localhost:21000", "https://www.clinicadentalsofiacastro.com" ,"https://clinicadentalsofiacastro.com", "https://api.clinicadentalsofiacastro.com"]
+/* const cors_whitelist = ["http://localhost:21000", "https://www.clinicadentalsofiacastro.com" ,"https://clinicadentalsofiacastro.com", "https://api.clinicadentalsofiacastro.com"]
 
 app.use(cors({
 
@@ -33,7 +33,14 @@ app.use(cors({
   methods: ["GET", "POST", "DELETE", "PUT"],
   credentials: true
 
-}))
+})) */
+
+  app.use(function (request, response, next) {
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 app.use(cookieParser())
 
 
